@@ -3,10 +3,15 @@
     "collection": "briscola_data",
     "roles": [
         {
-            "name": "anonymous",
+            "name": "Anonymous",
             "apply_when": {},
+            "document_filters": {
+                "read": {},
+                "write": {}
+            },
             "insert": true,
             "delete": false,
+            "search": true,
             "read": true
         }
     ]
