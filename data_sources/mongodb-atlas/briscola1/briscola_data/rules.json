@@ -4,23 +4,15 @@
     "roles": [
         {
             "name": "Anonymous",
-            "apply_when": {
-                "name": "anonymous",
-                "apply_when": {},
-                "read": true,
-                "insert": true,
-                "update": false,
-                "delete": false
-            },
+            "apply_when": {},
             "document_filters": {
                 "read": {},
                 "write": {}
             },
             "insert": true,
-            "delete": true,
+            "delete": false,
             "search": true,
-            "read": true,
-            "write": true
+            "read": true
         }
     ]
 }
