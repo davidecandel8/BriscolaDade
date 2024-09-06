@@ -16,9 +16,11 @@
                 "read": {},
                 "write": {}
             },
-            "insert": false,
-            "delete": false,
-            "search": false
+            "insert": true,
+            "delete": true,
+            "search": true,
+            "read": true,
+            "write": true
         }
     ]
 }
