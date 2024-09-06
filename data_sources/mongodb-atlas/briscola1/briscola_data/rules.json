@@ -1,0 +1,28 @@
+{
+    "database": "briscola1",
+    "collection": "briscola_data",
+    "roles": [
+        {
+            "name": "Anonymous",
+            "apply_when": {
+                "roles": [
+                    {
+                        "name": "anonymous",
+                        "apply_when": {},
+                        "read": true,
+                        "insert": true,
+                        "update": false,
+                        "delete": false
+                    }
+                ]
+            },
+            "document_filters": {
+                "read": {},
+                "write": {}
+            },
+            "insert": false,
+            "delete": false,
+            "search": false
+        }
+    ]
+}
