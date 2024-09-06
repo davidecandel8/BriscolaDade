@@ -1,6 +1,4 @@
 {
-    "database": "briscola1",
-    "collection": "briscola_data",
     "roles": [
         {
             "name": "readAndWriteAll",
