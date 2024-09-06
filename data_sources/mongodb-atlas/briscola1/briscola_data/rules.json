@@ -14,14 +14,18 @@
                 "Date": true,
                 "Subtype": true,
                 "Teammate1": true,
+                "Teammate2": true,
                 "Opponent1": true,
                 "Opponent2": true,
+                "Opponent3": true,
                 "TeamPoints": true,
                 "OpponentPoints1": true,
+                "OpponentPoints2": true,
+                "Audiction": true,
                 "Result": true,
                 "Type": true
             },
-            "delete": true,
+            "delete": false,
             "search": true,
             "read": true
         }
