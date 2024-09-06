@@ -9,7 +9,18 @@
                 "read": {},
                 "write": {}
             },
-            "insert": true,
+            "insert": {
+                "Number": true,
+                "Date": true,
+                "Subtype": true,
+                "Teammate1": true,
+                "Opponent1": true,
+                "Opponent2": true,
+                "TeamPoints": true,
+                "OpponentPoints1": true,
+                "Result": true,
+                "Type": true
+            },
             "delete": true,
             "search": true,
             "read": true
