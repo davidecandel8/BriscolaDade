@@ -10,7 +10,7 @@
                 "write": {}
             },
             "insert": true,
-            "delete": false,
+            "delete": true,
             "search": true,
             "read": true
         }
