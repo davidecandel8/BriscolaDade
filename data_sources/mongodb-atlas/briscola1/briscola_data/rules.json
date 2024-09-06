@@ -5,16 +5,12 @@
         {
             "name": "Anonymous",
             "apply_when": {
-                "roles": [
-                    {
-                        "name": "anonymous",
-                        "apply_when": {},
-                        "read": true,
-                        "insert": true,
-                        "update": false,
-                        "delete": false
-                    }
-                ]
+                "name": "anonymous",
+                "apply_when": {},
+                "read": true,
+                "insert": true,
+                "update": false,
+                "delete": false
             },
             "document_filters": {
                 "read": {},
