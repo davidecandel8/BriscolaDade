@@ -10,39 +10,40 @@ body {
 .card {
     cursor: pointer;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    width: 80%; /* Adatta la larghezza della card al 80% dello schermo */
+    width: 100%; /* Larghezza al 100% della colonna */
+    max-width: 300px; /* Limita la larghezza massima della card a 300px */
     margin: 10px auto; /* Centra la card e aggiungi margine */
-    height: auto; /* Altezza auto per adattarsi all'immagine */
+    height: auto; /* Mantieni altezza auto */
     position: relative; /* Necessario per il posizionamento del contenuto */
-    border-radius: 10px; /* Aggiungi angoli arrotondati */
-    overflow: hidden; /* Nasconde il contenuto che esce dai bordi della card */
+    border-radius: 10px; /* Angoli arrotondati */
+    overflow: hidden; /* Nasconde il contenuto che esce dai bordi */
 }
 
 /* Immagine della card */
 .card img {
-    width: 100%; /* L'immagine si adatta alla larghezza della card */
-    height: auto; /* Mantiene il rapporto proporzionale */
-    object-fit: cover; /* Ritaglia l'immagine per coprire interamente la card senza distorsione */
-    transition: transform 0.3s ease; /* Transizione dell'immagine */
+    width: 100%; /* Adatta l'immagine alla larghezza della card */
+    height: 200px; /* Altezza fissa dell'immagine */
+    object-fit: cover; /* Ritaglia l'immagine per coprire l'intera area senza distorsioni */
+    transition: transform 0.3s ease; /* Transizione per l'effetto hover */
 }
 
 /* Contenuto della card */
 .card-content {
-    position: absolute; /* Posiziona il contenuto sotto l'immagine */
+    position: absolute;
     bottom: 0;
     left: 0;
     right: 0;
     padding: 20px;
     background: rgba(0, 0, 0, 0.6); /* Sfondo semitrasparente */
-    color: white; /* Colore del testo */
+    color: white;
     text-align: center;
-    transform: translateY(100%); /* Nascondi il contenuto inizialmente sotto la card */
-    transition: transform 0.3s ease; /* Transizione quando si passa il mouse */
+    transform: translateY(100%); /* Nascondi inizialmente il contenuto */
+    transition: transform 0.3s ease;
 }
 
 /* Effetto hover */
 .card:hover img {
-    transform: scale(1.2); /* Zoom sull'immagine */
+    transform: scale(1.1); /* Zoom leggero dell'immagine */
 }
 
 .card:hover .card-content {
@@ -68,10 +69,14 @@ p.text-success {
 /* Stile specifico per mobile */
 @media (max-width: 768px) {
     .card {
-        width: 90%; /* Riduce la card al 90% dello schermo su dispositivi più piccoli */
+        max-width: 90%; /* Limita la card al 90% dello schermo per dispositivi piccoli */
+    }
+
+    .card img {
+        height: 150px; /* Riduce l'altezza delle immagini sui dispositivi piccoli */
     }
 
     .card-content {
-        padding: 15px; /* Riduce il padding del contenuto per adattarsi a schermi piccoli */
+        padding: 15px; /* Riduce il padding del contenuto */
     }
 }
