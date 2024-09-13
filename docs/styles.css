@@ -7,6 +7,7 @@ body {
     padding: 0;
 }
 
+
 /* Layout per le card */
 .card {
     cursor: pointer;
@@ -86,4 +87,16 @@ p.text-success {
     .card-content {
         padding: 15px; /* Riduce il padding del contenuto */
     }
+}
+
+/* Aggiunta per sfondo form */
+#form-section {
+    background-image: url('2_bastoni.jpg');
+    background-size: cover;
+    background-position: center;
+    padding: 50px 0;
+}
+
+.card {
+    background-color: rgba(30, 30, 30, 0.8); /* Sfondo semitrasparente per la card del form */
 }

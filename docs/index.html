@@ -92,26 +92,30 @@
                 <div class="card shadow-lg p-4">
                     <h3 id="form-title" class="text-center mb-4"></h3>
                     <form>
+                        <!-- Campo Data -->
                         <div class="mb-3">
-                            <label for="teammate1" class="form-label">Teammate1</label>
-                            <input type="text" class="form-control" id="teammate1">
+                            <label for="game-date" class="form-label">Data</label>
+                            <input type="date" class="form-control" id="game-date">
                         </div>
+
+                        <!-- Campo Avversario -->
                         <div class="mb-3">
-                            <label for="opponent1" class="form-label">Opponent1</label>
-                            <input type="text" class="form-control" id="opponent1">
+                            <label for="opponent1" class="form-label">Avversario</label>
+                            <input type="text" class="form-control" id="opponent1" placeholder="Inserisci il nome dell'avversario">
                         </div>
+
+                        <!-- Campo Punti Fatti -->
                         <div class="mb-3">
-                            <label for="opponent2" class="form-label">Opponent2</label>
-                            <input type="text" class="form-control" id="opponent2">
+                            <label for="team_points" class="form-label">Punti Fatti</label>
+                            <input type="number" class="form-control" id="team_points" oninput="updatePoints(this)">
                         </div>
+
+                        <!-- Campo Punti Avversario -->
                         <div class="mb-3">
-                            <label for="team_points" class="form-label">Team Points</label>
-                            <input type="number" class="form-control" id="team_points">
+                            <label for="opponent_points" class="form-label">Punti Avversario</label>
+                            <input type="number" class="form-control" id="opponent_points" oninput="updatePoints(this)">
                         </div>
-                        <div class="mb-3">
-                            <label for="opponent_points" class="form-label">Opponent Points</label>
-                            <input type="number" class="form-control" id="opponent_points">
-                        </div>
+
                         <button type="button" class="btn btn-primary w-100" onclick="submitForm()">Registra</button>
                     </form>
                     <p id="result" class="mt-3 text-success text-center"></p>
