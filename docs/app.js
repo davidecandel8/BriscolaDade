@@ -1,47 +1,40 @@
 function showInsertOptions() {
     document.getElementById("home-section").style.display = "none";
     document.getElementById("insert-options-section").style.display = "flex";
+    document.getElementById("subtitle").textContent = "Seleziona il tipo di briscola della partita da inserire:";
+    history.pushState({page: "insert-options"}, "Insert Options", "?page=insert-options");
 }
 
 function showStats() {
     alert("Pagina delle statistiche ancora in sviluppo!");
+    // In futuro puoi gestire la navigazione o l'apertura della pagina statistica qui
 }
 
 function showForm(gameType) {
     document.getElementById("insert-options-section").style.display = "none";
     document.getElementById("form-section").style.display = "block";
     document.getElementById("form-title").textContent = "Inserisci dati per " + gameType;
+    document.getElementById("subtitle").textContent = "Inserisci i dati della partita";
+    history.pushState({page: "form"}, "Form", "?page=form");
 }
 
-async function submitForm() {
-    const app = new Realm.App({ id: "briscoladade-hggbttk" });
-    const credentials = Realm.Credentials.anonymous();
-    const user = await app.logIn(credentials);
-    const mongo = app.currentUser.mongoClient("mongodb-atlas");
-    const collection = mongo.db("briscola1").collection("briscola_data");
-
-    const teammate1 = document.getElementById("teammate1").value;
-    const opponent1 = document.getElementById("opponent1").value;
-    const opponent2 = document.getElementById("opponent2").value;
-    const team_points = parseInt(document.getElementById("team_points").value);
-    const opponent_points = parseInt(document.getElementById("opponent_points").value);
-
-    const result = team_points > opponent_points ? "VITTORIA" : team_points === opponent_points ? "PATTA" : "SCONFITTA";
-
-    let documentToInsert = {
-        "Number": 1,
-        "Date": new Date().toLocaleDateString(),
-        "Opponent1": opponent1,
-        "TeamPoints": team_points,
-        "OpponentPoints1": opponent_points,
-        "Result": result,
-        "Type": 1
-    };
-
-    if (teammate1) { documentToInsert.Teammate1 = teammate1; }
-    if (opponent2) { documentToInsert.Opponent2 = opponent2; }
-
-    await collection.insertOne(documentToInsert);
-
-    document.getElementById("result").textContent = "Dati inseriti correttamente!";
-}
+window.onpopstate = function(event) {
+    if (event.state && event.state.page) {
+        if (event.state.page === "insert-options") {
+            document.getElementById("home-section").style.display = "none";
+            document.getElementById("insert-options-section").style.display = "flex";
+            document.getElementById("form-section").style.display = "none";
+            document.getElementById("subtitle").textContent = "Seleziona il tipo di briscola della partita da inserire:";
+        } else if (event.state.page === "form") {
+            document.getElementById("home-section").style.display = "none";
+            document.getElementById("insert-options-section").style.display = "none";
+            document.getElementById("form-section").style.display = "block";
+            document.getElementById("subtitle").textContent = "Inserisci i dati della partita";
+        } else {
+            document.getElementById("home-section").style.display = "flex";
+            document.getElementById("insert-options-section").style.display = "none";
+            document.getElementById("form-section").style.display = "none";
+            document.getElementById("subtitle").textContent = "Gestisci e visualizza le statistiche delle tue partite di Briscola";
+        }
+    }
+};
