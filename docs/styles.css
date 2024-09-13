@@ -98,5 +98,5 @@ p.text-success {
 }
 
 .card {
-    background-color: rgba(30, 30, 30, 0.8); /* Sfondo semitrasparente per la card del form */
+    background-color: rgba(30, 30, 30, 0.2); /* Sfondo semitrasparente per la card del form */
 }
