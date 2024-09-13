@@ -95,8 +95,24 @@ p.text-success {
     background-size: cover;
     background-position: center;
     padding: 50px 0;
+    display: flex;
+    justify-content: center;  /* Centra orizzontalmente */
+    align-items: center;      /* Centra verticalmente */
+    min-height: 100vh;        /* L'altezza della sezione sarà pari all'altezza della finestra */
+}
+
+/* Regolazione della larghezza del form per dispositivi più grandi */
+@media (min-width: 768px) {
+    .card {
+        width: 100%;         /* Imposta una larghezza piena della card */
+        max-width: 600px;     /* Limita la larghezza massima su schermi più grandi */
+        margin: 0 auto;      /* Centra la card orizzontalmente */
+    }
 }
 
 .card {
-    background-color: rgba(30, 30, 30, 0.8); /* Sfondo semitrasparente per la card del form */
+    width: 100%;          /* Imposta la larghezza al 100% del suo contenitore */
+    max-width: 800px;     /* Aumenta la larghezza massima della card */
+    height: auto;         /* Altezza automatica per mantenere proporzioni */
+    background-color: rgba(30, 30, 30, 0.8);  /* Sfondo semitrasparente */
 }
