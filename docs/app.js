@@ -64,3 +64,57 @@ function updatePoints(inputField) {
     }
 }
 
+// Funzione per aggiornare il colore dei punti in base al valore
+function updatePointsColor(input) {
+    const value = parseInt(input.value);
+
+    if (!isNaN(value)) {
+        if (value < 60) {
+            input.style.color = "red";
+        } else if (value > 60) {
+            input.style.color = "green";
+        } else {
+            input.style.color = "black";
+        }
+    } else {
+        input.style.color = "black"; // Reset se il campo è vuoto
+    }
+}
+
+// Event listener per aggiornare automaticamente i punti della squadra avversaria
+function calculateOpponentPoints() {
+    const teamPointsInput = document.getElementById('team_points');
+    const opponentPointsInput = document.getElementById('opponent_points');
+    
+    // Se i punti della squadra sono inseriti, calcola i punti dell'avversario
+    teamPointsInput.addEventListener('input', function () {
+        const teamPoints = parseInt(this.value);
+        
+        if (!isNaN(teamPoints) && teamPoints >= 0 && teamPoints <= 120) {
+            opponentPointsInput.value = 120 - teamPoints;  // Calcola i punti avversario
+            updatePointsColor(this);  // Aggiorna il colore dei punti squadra
+            updatePointsColor(opponentPointsInput);  // Aggiorna il colore dei punti avversario
+        } else {
+            opponentPointsInput.value = ""; // Reset se i valori non sono validi
+        }
+    });
+
+    // Se i punti dell'avversario sono inseriti, calcola i punti della squadra
+    opponentPointsInput.addEventListener('input', function () {
+        const opponentPoints = parseInt(this.value);
+        
+        if (!isNaN(opponentPoints) && opponentPoints >= 0 && opponentPoints <= 120) {
+            teamPointsInput.value = 120 - opponentPoints;  // Calcola i punti squadra
+            updatePointsColor(this);  // Aggiorna il colore dei punti avversario
+            updatePointsColor(teamPointsInput);  // Aggiorna il colore dei punti squadra
+        } else {
+            teamPointsInput.value = ""; // Reset se i valori non sono validi
+        }
+    });
+}
+
+// Chiama la funzione quando la pagina è caricata
+window.onload = function() {
+    calculateOpponentPoints();
+};
+
