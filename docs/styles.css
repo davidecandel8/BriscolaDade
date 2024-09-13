@@ -1,27 +1,55 @@
+/* Stile generale */
 body {
     font-family: 'Roboto', sans-serif;
     background-color: #f8f9fa;
+    margin: 0;
+    padding: 0;
 }
 
+/* Layout per le card */
 .card {
     cursor: pointer;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    width: 80%; /* Adatta la larghezza della card al 80% dello schermo */
+    margin: 10px auto; /* Centra la card e aggiungi margine */
+    height: auto; /* Altezza auto per adattarsi all'immagine */
+    position: relative; /* Necessario per il posizionamento del contenuto */
+    border-radius: 10px; /* Aggiungi angoli arrotondati */
+    overflow: hidden; /* Nasconde il contenuto che esce dai bordi della card */
 }
 
-.card:hover {
-    transform: scale(1.05);
-    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+/* Immagine della card */
+.card img {
+    width: 100%; /* L'immagine si adatta alla larghezza della card */
+    height: auto; /* Mantiene il rapporto proporzionale */
+    object-fit: cover; /* Ritaglia l'immagine per coprire interamente la card senza distorsione */
+    transition: transform 0.3s ease; /* Transizione dell'immagine */
 }
 
-.card-title {
-    font-size: 1.5rem;
-    color: #343a40;
-}
-
-.text-center {
+/* Contenuto della card */
+.card-content {
+    position: absolute; /* Posiziona il contenuto sotto l'immagine */
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.6); /* Sfondo semitrasparente */
+    color: white; /* Colore del testo */
     text-align: center;
+    transform: translateY(100%); /* Nascondi il contenuto inizialmente sotto la card */
+    transition: transform 0.3s ease; /* Transizione quando si passa il mouse */
 }
 
+/* Effetto hover */
+.card:hover img {
+    transform: scale(1.2); /* Zoom sull'immagine */
+}
+
+.card:hover .card-content {
+    transform: translateY(0); /* Mostra il contenuto */
+}
+
+/* Stile del bottone */
 .btn-primary {
     background-color: #007bff;
     border: none;
@@ -35,4 +63,15 @@ body {
 p.text-success {
     font-size: 1.2rem;
     font-weight: bold;
+}
+
+/* Stile specifico per mobile */
+@media (max-width: 768px) {
+    .card {
+        width: 90%; /* Riduce la card al 90% dello schermo su dispositivi più piccoli */
+    }
+
+    .card-content {
+        padding: 15px; /* Riduce il padding del contenuto per adattarsi a schermi piccoli */
+    }
 }
