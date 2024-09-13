@@ -11,7 +11,7 @@ body {
     cursor: pointer;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     width: 100%; /* Larghezza al 100% della colonna */
-    max-width: 300px; /* Limita la larghezza massima della card a 300px */
+    max-width: 600px; /* Limita la larghezza massima della card a 300px */
     margin: 10px auto; /* Centra la card e aggiungi margine */
     height: auto; /* Mantieni altezza auto */
     position: relative; /* Necessario per il posizionamento del contenuto */
@@ -22,7 +22,7 @@ body {
 /* Immagine della card */
 .card img {
     width: 100%; /* Adatta l'immagine alla larghezza della card */
-    height: 200px; /* Altezza fissa dell'immagine */
+    height: 400px; /* Altezza fissa dell'immagine */
     object-fit: cover; /* Ritaglia l'immagine per coprire l'intera area senza distorsioni */
     transition: transform 0.3s ease; /* Transizione per l'effetto hover */
 }
